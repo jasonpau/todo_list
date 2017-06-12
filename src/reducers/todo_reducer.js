@@ -1,4 +1,4 @@
-import { FETCH_ALL, GET_ONE } from '../actions/types';
+import { FETCH_ALL, GET_ONE, COMPLETE_ONE } from '../actions/types';
 
 const DEFAULT_STATE = { all: [], single: null };
 
@@ -13,6 +13,9 @@ export default function(state = DEFAULT_STATE, action) {
             };
         case GET_ONE:
             console.log('Todo reducer GET_ONE:', action.payload.data.todo);
+            return { ...state, single: action.payload.data.todo };
+        case COMPLETE_ONE:
+            console.log('Todo reducer COMPLETE ONE:', action.payload.data.todo);
             return { ...state, single: action.payload.data.todo };
         default:
             return state;

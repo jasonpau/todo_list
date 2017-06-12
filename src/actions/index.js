@@ -1,4 +1,4 @@
-import { FETCH_ALL, GET_ONE } from './types';
+import { FETCH_ALL, GET_ONE, COMPLETE_ONE } from './types';
 import axios from 'axios';
 
 const BASE_URL = 'http://api.scottbowlerdev.com';
@@ -24,7 +24,7 @@ export function get_one(id) {
 }
 
 export function complete_one(id) {
-    const request = axios.get(`${BASE_URL}/todos/${id + API_KEY}`);
+    const request = axios.put(`${BASE_URL}/todos/${id + API_KEY}`);
 
     return {
         type: COMPLETE_ONE,
