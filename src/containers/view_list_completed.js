@@ -44,7 +44,7 @@ class ViewListCompleted extends Component {
         console.log('listcompleted', listCompleted);
 
         return (
-            <div className="COMPLETED">
+            <div className="td-complete">
                 <ul className="list-group">
                     { listCompleted }
                 </ul>

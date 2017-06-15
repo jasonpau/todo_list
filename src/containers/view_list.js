@@ -42,7 +42,7 @@ class ViewList extends Component {
         });
 
         return (
-            <div>
+            <div className="td-not-complete">
                 <ul className="list-group ">
                     { listNotComplete }
                 </ul>

@@ -48,25 +48,32 @@ class ViewTodo extends Component {
         if (!todo) { return <h1>Loading...</h1> }
         return (
             <div className="card">
+                <div className="card-header">
+                    <div className="row">
+                        <div className="col-sm-3">
+                            <small>Owner: {todo.userId}</small>
+                        </div>
+                        <div className="col-sm-4">
+                            <small>Created: {`${this.toDateString(todo.created)} ${this.toTimeString(todo.created)}`}</small>
+                        </div>
+                        <div className="col-sm-5">
+                            <small>{(todo.complete) ? `Completed: ${this.toDateString(todo.completed)} ${this.toTimeString(todo.completed)}` : 'Incomplete'}</small>
+                        </div>
+                    </div>
+                </div>
                 <div className="card-block">
-                    <h4 className="card-title">
+                    <div className="container">
                         <i
                             className={`fa fa-${ (todo.complete) ? 'check-' : ''  }square-o`}
                             aria-hidden="true"
                             onClick={ () => this.handleComplete(todo._id) }></i>
-                        {todo.title}</h4>
+                        <h4 className="card-title">
+                            {todo.title}</h4>
+                    </div>
                     <p className="card-text">Details: {todo.details}</p>
                     <button
                         onClick={ () => this.handleDelete(todo._id) }
                         className="btn btn-danger">Delete</button>
-
-                    <p>
-                        <small>Owner: {todo.userId}</small><br />
-                        <small>Created: {`${this.toDateString(todo.created)} ${this.toTimeString(todo.created)}`}</small><br />
-                        {console.log('WHAT IS THIS', this)}
-                        <small>Completed: {(todo.complete) ? `${this.toDateString(todo.completed)} ${this.toTimeString(todo.completed)}` : 'Incomplete'}</small><br />
-                    </p>
-
                 </div>
             </div>
         )

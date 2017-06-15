@@ -21,7 +21,6 @@ const App = () => (
             <Route path="/" component={Nav} />
             <hr />
             <Route exact path="/" component={ViewList} />
-            <br />
             <Route exact path="/" component={ViewListCompleted} />
             <Route path="/todo/:id" component={ViewTodo} />
             <Route exact path="/add-todo" component={AddForm} />

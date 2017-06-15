@@ -4,10 +4,20 @@ html {
 
 body {
     height: 100%;
-    background-image: url('./imgs/background.jpg');
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
+    /*background-image: url('./imgs/background.jpg');*/
+    /*background-position: center;*/
+    /*background-size: cover;*/
+    /*background-repeat: no-repeat;*/
+    background-color: #ddd;
+}
+
+.td-not-complete {
+    margin-bottom: 20px;
+}
+
+.td-complete .list-group-item {
+    background-color: #f0f0f0;
+    text-decoration: line-through;
 }
 
 .list-group .list-group-item {
@@ -29,6 +39,21 @@ body {
 .td-delete {
     position: absolute;
     right: 0;
+}
+
+.container {
+    position: relative;
+}
+
+.card-block .fa {
+    position: absolute;
+    left: 0;
+    top: 3px;
+    font-size: 1.5rem;
+}
+
+.card-title {
+    padding-left: 15px;
 }
 
 
