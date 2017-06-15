@@ -1,3 +1,38 @@
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    background-image: url('./imgs/background.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.list-group .list-group-item {
+    font-size: 20px;
+    position: relative;
+}
+
+.list-group .list-group-item i {
+    position: absolute;
+    padding: 16px;
+    cursor: pointer;
+    margin-left: -12px;
+}
+
+.list-group .list-group-item a {
+    margin-left: 36px;
+}
+
+.td-delete {
+    position: absolute;
+    right: 0;
+}
+
+
+/* ======== */
 .app {
     background-color: #000;
     color: #fff;
