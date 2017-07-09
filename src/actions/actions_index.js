@@ -43,17 +43,17 @@ export function complete_one(id) {
     };
 }
 
-export function delete_one(id) {
+export const delete_one = (id) => (dispatch) => {
     console.log('=====RIGHT INSIDE DELETE_ONE ACTION FUNCTION');
-    const request = axios.delete(`${BASE_URL}/todos/${id + API_KEY}`);
-
-    return function(dispatch, getState) {
+    axios.delete(`${BASE_URL}/todos/${id + API_KEY}`).then( (request) => {
       dispatch({
         type: DELETE_ONE,
         payload: request
-      }).then( () => { dispatch(fetch_all()) });
-    }
-}
+      })
+    }).then(() => { dispatch(fetch_all()) })
+      .then( /* something */);
+
+};
 
 export function add_todo(item) {
     console.log('=====RIGHT INSIDE ADD_TODO ACTION FUNCTION');
@@ -64,4 +64,31 @@ export function add_todo(item) {
         type: ADD_TODO,
         payload: request
     };
+}
+
+export function connect(complete_one) {
+
+
+  this.props.complete_one = function (id) {
+    var result = complete_one(id);
+    if (typeof result === "function") {
+      thunk_test(result);
+    } else {
+      dispatch(result);
+    }
+  }
+
+}
+
+export function dispatch(obj) {
+  // goes to reducer
+}
+
+export function getState() {
+  return state;
+}
+
+// THUNK MIDDLEWARE PRETEND
+export function thunk_test(fn) {
+  fn(dispatch, getState);
 }
