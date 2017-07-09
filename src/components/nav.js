@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 class Nav extends Component {
     render() {
-        console.log(this.props.location.pathname);
+        //console.log(this.props.location.pathname);
         return (
             <nav>
                 <ul className="nav nav-pills">

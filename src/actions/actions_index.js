@@ -32,24 +32,27 @@ export function get_one(id) {
 }
 
 export function complete_one(id) {
-    console.log('=====RIGHT INSIDE complete_one ACTION FUNCTION');
-    const request = axios.put(`${BASE_URL}/todos/${id + API_KEY}`);
+    return function(dispatch, getState) {
+      console.log('=====RIGHT INSIDE complete_one ACTION FUNCTION');
+      const request = axios.put(`${BASE_URL}/todos/${id + API_KEY}`);
 
-    return {
-        type: COMPLETE_ONE,
-        payload: request
+      dispatch({
+          type: COMPLETE_ONE,
+          payload: request
+      }).then( () => { dispatch(fetch_all()) });
     };
 }
-
 
 export function delete_one(id) {
     console.log('=====RIGHT INSIDE DELETE_ONE ACTION FUNCTION');
     const request = axios.delete(`${BASE_URL}/todos/${id + API_KEY}`);
 
-    return {
+    return function(dispatch, getState) {
+      dispatch({
         type: DELETE_ONE,
         payload: request
-    };
+      }).then( () => { dispatch(fetch_all()) });
+    }
 }
 
 export function add_todo(item) {

@@ -1,7 +1,6 @@
 import React from 'react';
 import './app.css';
-import ViewList from '../containers/view_list';
-import ViewListCompleted from '../containers/view_list_completed';
+import ViewParent from '../containers/view_parent';
 import ViewTodo from '../containers/view_todo';
 import AddForm from '../containers/add_form';
 import Nav from './nav';
@@ -20,8 +19,7 @@ const App = () => (
             <hr />
             <Route path="/" component={Nav} />
             <hr />
-            <Route exact path="/" component={ViewList} />
-            <Route exact path="/" component={ViewListCompleted} />
+            <Route exact path="/" component={ViewParent}/>
             <Route path="/todo/:id" component={ViewTodo} />
             <Route exact path="/add-todo" component={AddForm} />
         </div>
